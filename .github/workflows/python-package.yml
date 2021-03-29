@@ -1,6 +1,7 @@
 name: Generate new all_anime.json
 
 on:
+  push:
   schedule:
     - cron: 0 7 * * *
 
@@ -15,6 +16,8 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v2
       with:
